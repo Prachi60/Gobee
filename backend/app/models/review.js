@@ -35,4 +35,4 @@ const reviewSchema = new mongoose.Schema(
 // Prevent multiple reviews from same user for same product
 reviewSchema.index({ userId: 1, productId: 1 }, { unique: true });
 
-export default mongoose.model("Review", reviewSchema);
+export default mongoose.model("Review", reviewSchema, "quick_reviews");

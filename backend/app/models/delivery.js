@@ -128,4 +128,4 @@ deliverySchema.virtual('id').get(function () {
     return this._id.toHexString();
 });
 
-export default mongoose.model("Delivery", deliverySchema);
+export default mongoose.model("Delivery", deliverySchema, "quick_deliveries");

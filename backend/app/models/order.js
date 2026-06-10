@@ -708,4 +708,4 @@ function preUpdateMirror(next) {
 orderSchema.pre('updateOne', preUpdateMirror);
 orderSchema.pre('updateMany', preUpdateMirror);
 
-export default mongoose.model("Order", orderSchema);
+export default mongoose.model("Order", orderSchema, "quick_orders");

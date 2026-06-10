@@ -94,5 +94,5 @@ const couponSchema = new mongoose.Schema(
 
 couponSchema.index({ isActive: 1, validFrom: 1, validTill: 1 });
 
-export default mongoose.model("Coupon", couponSchema);
+export default mongoose.model("Coupon", couponSchema, "quick_coupons");
 

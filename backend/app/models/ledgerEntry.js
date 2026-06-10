@@ -138,4 +138,4 @@ ledgerEntrySchema.index(
   },
 );
 
-export default mongoose.model("LedgerEntry", ledgerEntrySchema);
+export default mongoose.model("LedgerEntry", ledgerEntrySchema, "quick_ledgerentries");

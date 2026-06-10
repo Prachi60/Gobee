@@ -63,4 +63,4 @@ walletSchema.index(
   { unique: true, partialFilterExpression: { ownerType: { $exists: true } } },
 );
 
-export default mongoose.model("Wallet", walletSchema);
+export default mongoose.model("Wallet", walletSchema, "quick_wallets");

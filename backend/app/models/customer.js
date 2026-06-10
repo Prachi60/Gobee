@@ -162,4 +162,4 @@ userSchema.virtual("wallet", {
 userSchema.set("toJSON", { virtuals: true });
 userSchema.set("toObject", { virtuals: true });
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema, "quick_users");

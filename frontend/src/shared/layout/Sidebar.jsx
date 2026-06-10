@@ -85,7 +85,7 @@ const SidebarItem = ({
               className={cn(
                 "p-1.5 rounded-lg transition-all duration-500 shadow-lg",
                 isChildActive || isOpen
-                  ? "bg-primary text-primary-foreground ring-2 ring-primary/20"
+                  ? "bg-primary text-black ring-2 ring-primary/20"
                   : "bg-white/5 text-gray-500 group-hover:bg-white/10 group-hover:text-gray-300",
               )}>
               {item.icon && <item.icon className="h-4 w-4" />}
@@ -165,7 +165,7 @@ const SidebarItem = ({
         cn(
           "flex items-center space-x-2.5 rounded-lg px-3 py-2.5 transition-all duration-300 group relative overflow-hidden",
           isActive
-            ? "bg-primary text-primary-foreground"
+            ? "bg-primary text-gray-600"
             : "text-gray-400 hover:text-white",
         )
       }>
@@ -192,7 +192,7 @@ const SidebarItem = ({
             className={cn(
               "p-1.5 rounded-lg transition-all duration-500 shadow-md z-10",
               isActive
-                ? "bg-white/20 text-white"
+                ? "bg-black/10 text-black"
                 : "bg-white/5 text-gray-500 group-hover:bg-white/10 group-hover:text-gray-300",
             )}>
             {item.icon && <item.icon className="h-4 w-4" />}
@@ -200,7 +200,7 @@ const SidebarItem = ({
           <span
             className={cn(
               "text-xs tracking-tight transition-all duration-300 z-10",
-              isActive ? "font-bold" : "font-semibold",
+              isActive ? "font-bold text-gray-600" : "font-semibold",
             )}>
             {item.label}
           </span>

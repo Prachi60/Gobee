@@ -87,4 +87,4 @@ transactionSchema.index({ user: 1, userModel: 1, status: 1, createdAt: -1 });
 transactionSchema.index({ order: 1 });
 transactionSchema.index({ status: 1, type: 1 });
 
-export default mongoose.model("Transaction", transactionSchema);
+export default mongoose.model("Transaction", transactionSchema, "quick_transactions");

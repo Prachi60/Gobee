@@ -427,13 +427,13 @@ const Auth = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="relative z-10 w-full max-w-[1000px] min-h-[600px] max-h-[90vh] bg-white rounded-lg shadow-[0_50px_120px_rgba(0,0,0,0.04)] border border-white flex flex-col md:flex-row overflow-hidden">
+        className="relative z-10 w-full max-w-[1000px] min-h-[600px] max-h-[90vh] bg-[#0a0c10] rounded-lg shadow-[0_50px_120px_rgba(0,0,0,0.04)] border border-white/10 flex flex-col md:flex-row overflow-hidden">
         {/* Visual Side Panel */}
-        <div className="hidden md:flex w-[45%] bg-linear-to-br from-slate-900 via-slate-950 to-black relative flex-col items-center justify-center p-10 overflow-hidden">
+        <div className="hidden md:flex w-[45%] bg-white relative flex-col items-center justify-center p-10 overflow-hidden">
           {/* Abstract Decorative Circles */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+          <div className="absolute inset-0 opacity-40">
+            <div className="absolute top-0 left-0 w-64 h-64 bg-slate-100 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
           </div>
 
           <motion.div
@@ -442,7 +442,7 @@ const Auth = () => {
             transition={{ duration: 0.8 }}
             className="relative z-10 w-full flex flex-col items-center">
             {/* Lottie Animation for Seller */}
-            <div className="w-full max-w-[350px] drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+            <div className="w-full max-w-[350px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
               <Lottie
                 animationData={sellerAnimation}
                 loop={true}
@@ -451,21 +451,21 @@ const Auth = () => {
             </div>
 
             <div className="mt-8 text-center space-y-4">
-              <h2 className="text-2xl font-black text-white tracking-tight leading-tight uppercase underline decoration-white/20 underline-offset-8">
-                Seller <span className="text-slate-600">Expansion.</span>
+              <h2 className="text-2xl font-black text-slate-900 tracking-tight leading-tight uppercase underline decoration-slate-900/10 underline-offset-8">
+                Seller <span className="text-slate-500">Expansion.</span>
               </h2>
             </div>
           </motion.div>
 
           {/* Partner Badges */}
-          <div className="absolute bottom-12 left-0 right-0 px-12 flex justify-between items-center opacity-60">
-            <div className="flex items-center gap-2 text-white/80">
+          <div className="absolute bottom-12 left-0 right-0 px-12 flex justify-between items-center opacity-80">
+            <div className="flex items-center gap-2 text-slate-800">
               <Rocket size={16} />
               <span className="text-[10px] font-black uppercase tracking-widest">
                 Growth First
               </span>
             </div>
-            <div className="flex items-center gap-2 text-white/80">
+            <div className="flex items-center gap-2 text-slate-800">
               <Globe size={16} />
               <span className="text-[10px] font-black uppercase tracking-widest">
                 Pan India
@@ -476,19 +476,19 @@ const Auth = () => {
 
         {/* Form Content Side */}
         <div
-          className="w-full md:w-[55%] min-h-0 p-8 pt-12 md:p-12 md:pt-16 flex flex-col justify-center bg-white overflow-y-auto overscroll-contain touch-pan-y custom-scrollbar relative"
+          className="w-full md:w-[55%] min-h-0 p-8 pt-12 md:p-12 md:pt-16 flex flex-col justify-center bg-[#0a0c10] overflow-y-auto overscroll-contain touch-pan-y custom-scrollbar-dark relative"
           onWheelCapture={handlePanelWheel}
           style={{ WebkitOverflowScrolling: "touch" }}>
           <div className="hidden md:flex absolute top-8 right-8 z-20">
-            <div className="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
+            <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 shadow-sm flex items-center justify-center overflow-hidden">
               {logoUrl ? (
                 <img
                   src={logoUrl}
                   alt={`${appName} logo`}
-                  className="w-14 h-14 object-contain"
+                  className="w-full h-full object-cover"
                 />
               ) : (
-                <Store size={30} className="text-slate-700" />
+                <Store size={30} className="text-white" />
               )}
             </div>
           </div>
@@ -501,18 +501,18 @@ const Auth = () => {
               transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
               className="space-y-8 py-4 md:py-6">
               <div className="space-y-4">
-                <span className="inline-block px-4 py-1 bg-slate-100 text-slate-800 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-200">
+                <span className="inline-block px-4 py-1 bg-white/5 text-gray-300 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/10">
                   {isLogin
                     ? "Welcome Back"
                     : `New Partnership - Step ${signupStep} of 3`}
                 </span>
-                <h1 className="text-3xl font-black text-slate-900 tracking-tighter">
+                <h1 className="text-3xl font-black text-white tracking-tighter">
                   Seller{" "}
-                  <span className="text-slate-900">
+                  <span className="text-white">
                     {isLogin ? "Login" : "Signup"}
                   </span>
                 </h1>
-                <p className="text-slate-600 font-medium text-base leading-relaxed">
+                <p className="text-gray-400 font-medium text-base leading-relaxed">
                   {isLogin
                     ? "Access your unified seller dashboard and manage orders."
                     : signupStep === 1
@@ -530,7 +530,7 @@ const Auth = () => {
                     {!isLogin && (
                       <div className="grid grid-cols-2 gap-4">
                         <div className="relative group">
-                          <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                          <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                             <User size={18} />
                           </div>
                           <input
@@ -538,13 +538,13 @@ const Auth = () => {
                             name="name"
                             required
                             placeholder="Owner Name"
-                            className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                            className="w-full pl-12 pr-6 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                             value={formData.name}
                             onChange={handleChange}
                           />
                         </div>
                         <div className="relative group">
-                          <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                          <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                             <Store size={18} />
                           </div>
                           <input
@@ -552,7 +552,7 @@ const Auth = () => {
                             name="shopName"
                             required
                             placeholder="Shop / Business Name"
-                            className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                            className="w-full pl-12 pr-6 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                             value={formData.shopName}
                             onChange={handleChange}
                           />
@@ -561,7 +561,7 @@ const Auth = () => {
                     )}
 
                     <div className="relative group">
-                      <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                      <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                         <Mail size={18} />
                       </div>
                       <input
@@ -571,7 +571,7 @@ const Auth = () => {
                         inputMode="email"
                         autoComplete="email"
                         placeholder="Business Email"
-                        className="w-full pl-12 pr-28 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                        className="w-full pl-12 pr-28 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                         value={formData.email}
                         onChange={handleChange}
                       />
@@ -586,7 +586,7 @@ const Auth = () => {
                           }
                           className={`absolute right-3 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-md text-[10px] font-black uppercase tracking-wider transition-all ${verifications.email.status === "verified"
                             ? "bg-brand-100 text-brand-700 cursor-default"
-                            : "bg-slate-900 text-white hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
+                            : "bg-white text-slate-950 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
                             }`}>
                           {verifications.email.isSending ? (
                             <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -601,7 +601,7 @@ const Auth = () => {
                       )}
                     </div>
                     {!isLogin && verifications.email.isOtpVisible && verifications.email.status !== "verified" && (
-                      <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2">
+                      <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
                         <input
                           type="text"
                           inputMode="numeric"
@@ -613,20 +613,20 @@ const Auth = () => {
                               otp: e.target.value.replace(/\D/g, "").slice(0, 4),
                             })
                           }
-                          className="flex-1 bg-transparent text-sm font-bold text-slate-700 outline-none placeholder:text-slate-400"
+                          className="flex-1 bg-transparent text-sm font-bold text-white outline-none placeholder:text-gray-500"
                         />
                         <button
                           type="button"
                           onClick={() => handleVerifyOtp("email")}
                           disabled={verifications.email.isVerifying || verifications.email.otp.length !== 4}
-                          className="rounded-md bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-100 disabled:opacity-50"
+                          className="rounded-md bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-950 shadow-sm hover:bg-gray-100 disabled:opacity-50"
                         >
                           {verifications.email.isVerifying ? "Checking..." : "Confirm OTP"}
                         </button>
                       </div>
                     )}
                     {!isLogin && verifications.email.status === "verified" && (
-                      <div className="flex items-center gap-2 text-[11px] font-bold text-brand-600">
+                      <div className="flex items-center gap-2 text-[11px] font-bold text-brand-400">
                         <CheckCircle className="h-4 w-4" />
                         <span>Email verified successfully.</span>
                       </div>
@@ -635,7 +635,7 @@ const Auth = () => {
                     {!isLogin && (
                       <>
                         <div className="relative group">
-                          <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                          <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                             <Phone size={18} />
                           </div>
                           <input
@@ -643,7 +643,7 @@ const Auth = () => {
                             name="phone"
                             required
                             placeholder="Contact Number"
-                            className="w-full pl-12 pr-28 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                            className="w-full pl-12 pr-28 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                             value={formData.phone}
                             onChange={handleChange}
                           />
@@ -657,7 +657,7 @@ const Auth = () => {
                             }
                             className={`absolute right-3 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-md text-[10px] font-black uppercase tracking-wider transition-all ${verifications.phone.status === "verified"
                               ? "bg-brand-100 text-brand-700 cursor-default"
-                              : "bg-slate-900 text-white hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
+                              : "bg-white text-slate-950 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
                               }`}>
                             {verifications.phone.isSending ? (
                               <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -671,7 +671,7 @@ const Auth = () => {
                           </button>
                         </div>
                         {verifications.phone.isOtpVisible && verifications.phone.status !== "verified" && (
-                          <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2">
+                          <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
                             <input
                               type="text"
                               inputMode="numeric"
@@ -683,20 +683,20 @@ const Auth = () => {
                                   otp: e.target.value.replace(/\D/g, "").slice(0, 4),
                                 })
                               }
-                              className="flex-1 bg-transparent text-sm font-bold text-slate-700 outline-none placeholder:text-slate-400"
+                              className="flex-1 bg-transparent text-sm font-bold text-white outline-none placeholder:text-gray-500"
                             />
                             <button
                               type="button"
                               onClick={() => handleVerifyOtp("phone")}
                               disabled={verifications.phone.isVerifying || verifications.phone.otp.length !== 4}
-                              className="rounded-md bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-100 disabled:opacity-50"
+                              className="rounded-md bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-950 shadow-sm hover:bg-gray-100 disabled:opacity-50"
                             >
                               {verifications.phone.isVerifying ? "Checking..." : "Confirm OTP"}
                             </button>
                           </div>
                         )}
                         {verifications.phone.status === "verified" && (
-                          <div className="flex items-center gap-2 text-[11px] font-bold text-brand-600">
+                          <div className="flex items-center gap-2 text-[11px] font-bold text-brand-400">
                             <CheckCircle className="h-4 w-4" />
                             <span>Phone number verified successfully.</span>
                           </div>
@@ -705,7 +705,7 @@ const Auth = () => {
                     )}
 
                     <div className="relative group">
-                      <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                      <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                         <Lock size={18} />
                       </div>
                       <input
@@ -715,14 +715,14 @@ const Auth = () => {
                         minLength={6}
                         autoComplete="current-password"
                         placeholder="Enter your password"
-                        className="w-full pl-12 pr-14 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                        className="w-full pl-12 pr-14 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                         value={formData.password}
                         onChange={handleChange}
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-600 transition-colors px-2"
+                        className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors px-2"
                         tabIndex="-1">
                         {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                       </button>
@@ -734,19 +734,19 @@ const Auth = () => {
                 {!isLogin && signupStep === 2 && (
                   <div className="space-y-4">
                     <div className="pt-2">
-                      <p className="text-sm font-black text-slate-600 uppercase tracking-widest mb-3">
+                      <p className="text-sm font-black text-gray-400 uppercase tracking-widest mb-3">
                         Shop Location & Service Area
                       </p>
                       <button
                         type="button"
                         onClick={() => setIsMapOpen(true)}
                         className={`w-full flex items-center justify-between p-4 rounded-lg border-2 border-dashed transition-all cursor-pointer ${formData.lat
-                          ? "border-brand-200 bg-brand-50/50"
-                          : "border-slate-200 bg-slate-50 hover:border-slate-300"
+                          ? "border-brand-500/30 bg-brand-500/10 text-white"
+                          : "border-white/10 bg-white/5 hover:border-white/20"
                           }`}>
                         <div className="flex items-center gap-3">
                           <div
-                            className={`p-2 rounded-md ${formData.lat ? "bg-brand-100 text-brand-600" : "bg-white text-slate-600 shadow-sm"}`}>
+                            className={`p-2 rounded-md ${formData.lat ? "bg-brand-500/20 text-brand-400" : "bg-white/5 text-gray-400 shadow-sm"}`}>
                             {formData.lat ? (
                               <CheckCircle className="w-4 h-4" />
                             ) : (
@@ -755,12 +755,12 @@ const Auth = () => {
                           </div>
                           <div className="text-left">
                             <p
-                              className={`text-xs font-bold ${formData.lat ? "text-brand-700" : "text-slate-600"}`}>
+                              className={`text-xs font-bold ${formData.lat ? "text-brand-400" : "text-gray-400"}`}>
                               {formData.lat
                                 ? "Location Selected"
                                 : "Pin Shop on Map"}
                             </p>
-                            <p className="text-xs text-slate-600 font-medium truncate max-w-[250px]">
+                            <p className="text-xs text-gray-500 font-medium truncate max-w-[250px]">
                               {formData.lat
                                 ? `${formData.address} (${formData.radius}km)`
                                 : "Precisely mark your shop location"}
@@ -768,7 +768,7 @@ const Auth = () => {
                           </div>
                         </div>
                         {formData.lat && (
-                          <span className="text-[10px] font-black text-brand-600 bg-brand-100 px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                          <span className="text-[10px] font-black text-brand-400 bg-brand-500/20 px-2 py-0.5 rounded-full uppercase tracking-tighter">
                             Verified
                           </span>
                         )}
@@ -777,7 +777,7 @@ const Auth = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="relative group">
-                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                           <MapPin size={18} />
                         </div>
                         <input
@@ -785,13 +785,13 @@ const Auth = () => {
                           name="locality"
                           required
                           placeholder="Locality / Area"
-                          className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                          className="w-full pl-12 pr-6 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                           value={formData.locality}
                           onChange={handleChange}
                         />
                       </div>
                       <div className="relative group">
-                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                           <MapPin size={18} />
                         </div>
                         <input
@@ -799,13 +799,13 @@ const Auth = () => {
                           name="pincode"
                           required
                           placeholder="Pincode"
-                          className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                          className="w-full pl-12 pr-6 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                           value={formData.pincode}
                           onChange={handleChange}
                         />
                       </div>
                       <div className="relative group">
-                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                           <MapPin size={18} />
                         </div>
                         <input
@@ -813,13 +813,13 @@ const Auth = () => {
                           name="city"
                           required
                           placeholder="City"
-                          className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                          className="w-full pl-12 pr-6 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                           value={formData.city}
                           onChange={handleChange}
                         />
                       </div>
                       <div className="relative group">
-                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                           <MapPin size={18} />
                         </div>
                         <input
@@ -827,7 +827,7 @@ const Auth = () => {
                           name="state"
                           required
                           placeholder="State"
-                          className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300"
+                          className="w-full pl-12 pr-6 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500"
                           value={formData.state}
                           onChange={handleChange}
                         />
@@ -835,7 +835,7 @@ const Auth = () => {
                     </div>
 
                     <div className="relative group">
-                      <div className="absolute left-5 top-5 text-slate-300 group-focus-within:text-violet-600 transition-colors">
+                      <div className="absolute left-5 top-5 text-gray-500 group-focus-within:text-gray-300 transition-colors">
                         <MapPin size={18} />
                       </div>
                       <textarea
@@ -843,7 +843,7 @@ const Auth = () => {
                         rows={3}
                         required
                         placeholder="Full address"
-                        className="w-full pl-12 pr-6 py-4 bg-slate-50 border-2 border-transparent rounded-lg text-sm font-bold text-slate-700 outline-none focus:bg-white focus:border-slate-200 transition-all placeholder:text-slate-300 resize-none"
+                        className="w-full pl-12 pr-6 py-4 bg-white/5 border-2 border-transparent rounded-lg text-sm font-bold text-white outline-none focus:bg-white/10 focus:border-white/10 transition-all placeholder:text-gray-500 resize-none"
                         value={formData.address}
                         onChange={handleChange}
                       />
@@ -855,7 +855,7 @@ const Auth = () => {
                 {!isLogin && signupStep === 3 && (
                   <div className="space-y-4">
                     <div className="pt-2">
-                      <p className="text-sm font-black text-slate-600 uppercase tracking-widest mb-3">
+                      <p className="text-sm font-black text-gray-400 uppercase tracking-widest mb-3">
                         Verification Documents
                       </p>
                       <div className="space-y-3">
@@ -871,12 +871,12 @@ const Auth = () => {
                             <label
                               htmlFor={doc.id}
                               className={`flex items-center justify-between p-3.5 rounded-lg border-2 border-dashed transition-all cursor-pointer ${documents[doc.id]
-                                ? "border-brand-200 bg-brand-50/50"
-                                : "border-slate-200 bg-slate-50 hover:border-slate-300"
+                                ? "border-brand-500/30 bg-brand-500/10"
+                                : "border-white/10 bg-white/5 hover:border-white/20"
                                 }`}>
                               <div className="flex items-center gap-3">
                                 <div
-                                  className={`p-2 rounded-md ${documents[doc.id] ? "bg-brand-100 text-brand-600" : "bg-white text-slate-600 shadow-sm"}`}>
+                                  className={`p-2 rounded-md ${documents[doc.id] ? "bg-brand-500/20 text-brand-400" : "bg-white/5 text-gray-400 shadow-sm"}`}>
                                   {documents[doc.id] ? (
                                     <CheckCircle className="w-4 h-4" />
                                   ) : (
@@ -885,10 +885,10 @@ const Auth = () => {
                                 </div>
                                 <div className="text-left">
                                   <p
-                                    className={`text-xs font-bold ${documents[doc.id] ? "text-brand-700" : "text-slate-600"}`}>
+                                    className={`text-xs font-bold ${documents[doc.id] ? "text-brand-400" : "text-gray-400"}`}>
                                     {doc.label}
                                   </p>
-                                  <p className="text-xs text-slate-600 font-medium truncate max-w-[150px]">
+                                  <p className="text-xs text-gray-500 font-medium truncate max-w-[150px]">
                                     {documents[doc.id]
                                       ? documents[doc.id].name
                                       : "Upload secure PDF or image"}
@@ -908,14 +908,14 @@ const Auth = () => {
                     <button
                       type="button"
                       onClick={() => setSignupStep((prev) => Math.max(1, prev - 1))}
-                      className="w-1/3 bg-slate-100 text-slate-600 rounded-lg py-4 text-sm font-black tracking-[2px] transition-all hover:bg-slate-200">
+                      className="w-1/3 bg-white/5 text-gray-300 rounded-lg py-4 text-sm font-black tracking-[2px] border border-white/10 transition-all hover:bg-white/10">
                       BACK
                     </button>
                   )}
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className={`${!isLogin && signupStep > 1 ? "w-2/3" : "w-full"} bg-slate-900 text-white rounded-lg py-4 text-sm font-black tracking-[2px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] hover:bg-black transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 group`}>
+                    className={`${!isLogin && signupStep > 1 ? "w-2/3" : "w-full"} bg-white text-slate-950 rounded-lg py-4 text-sm font-black tracking-[2px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] hover:bg-gray-100 transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 group`}>
                     {isLoading
                       ? "WORKING..."
                       : isLogin
@@ -931,8 +931,8 @@ const Auth = () => {
                 </div>
               </form>
 
-              <div className="pt-1 border-t border-slate-50 flex flex-col items-center gap-1">
-                <p className="text-slate-600 font-bold text-sm">
+              <div className="pt-1 border-t border-white/5 flex flex-col items-center gap-1">
+                <p className="text-gray-400 font-bold text-sm">
                   {isLogin ? "New to the platform?" : "Already part of us?"}{" "}
                   <button
                     onClick={() => {
@@ -943,7 +943,7 @@ const Auth = () => {
                         phone: createInitialVerificationState(),
                       });
                     }}
-                    className="text-slate-900 hover:text-black transition-colors px-2">
+                    className="text-white hover:text-gray-300 transition-colors px-2">
                     {isLogin ? "Register Store" : "Sign In"}
                   </button>
                 </p>

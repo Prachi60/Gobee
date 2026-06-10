@@ -2,8 +2,38 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Home, IndianRupee, History, User } from "lucide-react";
 import { motion } from "framer-motion";
+import { useSettings } from "@core/context/SettingsContext";
+
+const isColorLight = (color) => {
+  if (!color || typeof color !== 'string') return false;
+  if (color.startsWith('var')) return false;
+  const hex = color.replace('#', '');
+  if (hex.length !== 6 && hex.length !== 3) return false;
+  
+  let r, g, b;
+  if (hex.length === 6) {
+    r = parseInt(hex.substring(0, 2), 16);
+    g = parseInt(hex.substring(2, 4), 16);
+    b = parseInt(hex.substring(4, 6), 16);
+  } else {
+    r = parseInt(hex.charAt(0) + hex.charAt(0), 16);
+    g = parseInt(hex.charAt(1) + hex.charAt(1), 16);
+    b = parseInt(hex.charAt(2) + hex.charAt(2), 16);
+  }
+  const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+  return yiq >= 220; // threshold for white/very light colors
+};
 
 const BottomNav = () => {
+  const { settings } = useSettings();
+  const primaryColor = settings?.primaryColor || '#0284c7';
+  const secondaryColor = settings?.secondaryColor || '#64748b';
+  
+  const isLight = isColorLight(primaryColor);
+  const activeColor = isLight 
+    ? (isColorLight(secondaryColor) ? '#0284c7' : secondaryColor) 
+    : 'var(--primary)';
+
   const navItems = [
     { path: "/delivery/dashboard", label: "Home", icon: Home },
     { path: "/delivery/earnings", label: "Earnings", icon: IndianRupee },
@@ -17,17 +47,17 @@ const BottomNav = () => {
         <NavLink
           key={path}
           to={path}
-          className={({ isActive }) =>
-            `relative flex flex-col items-center justify-center space-y-1 w-full h-14 transition-colors duration-300 ${
-              isActive ? "text-primary" : "text-gray-400 hover:text-gray-600"
-            }`
-          }>
+          style={({ isActive }) => ({
+            color: isActive ? activeColor : '#9ca3af'
+          })}
+          className="relative flex flex-col items-center justify-center space-y-1 w-full h-14 transition-colors duration-300">
           {({ isActive }) => (
             <>
               {isActive && (
                 <motion.div
                   layoutId="nav-indicator"
-                  className="absolute -top-2 w-8 h-1 bg-primary rounded-full"
+                  style={{ backgroundColor: activeColor }}
+                  className="absolute -top-2 w-8 h-1 rounded-full"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}

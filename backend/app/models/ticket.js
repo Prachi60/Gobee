@@ -91,4 +91,4 @@ const ticketSchema = new mongoose.Schema(
 ticketSchema.index({ userId: 1, userType: 1, createdAt: -1 });
 ticketSchema.index({ status: 1, priority: 1 });
 
-export default mongoose.model("Ticket", ticketSchema);
+export default mongoose.model("Ticket", ticketSchema, "quick_tickets");

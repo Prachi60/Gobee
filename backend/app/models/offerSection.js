@@ -44,4 +44,4 @@ const offerSectionSchema = new mongoose.Schema(
 
 offerSectionSchema.index({ status: 1, order: 1, createdAt: 1 });
 
-export default mongoose.model("OfferSection", offerSectionSchema);
+export default mongoose.model("OfferSection", offerSectionSchema, "quick_offersections");

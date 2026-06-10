@@ -200,4 +200,5 @@ settingSchema.pre("save", function syncFinanceAliases(next) {
     next();
 });
 
-export default mongoose.model("Setting", settingSchema);
+export default mongoose.model("Setting", settingSchema, "quick_settings");
+
